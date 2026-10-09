@@ -1,0 +1,221 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.58 0.24 285);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.59 0.04 267);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --login-ink: oklch(0.25 0.075 265);
+  --login-copy: oklch(0.44 0.065 266);
+  --login-light: oklch(0.98 0.008 260);
+  --login-soft: oklch(0.96 0.012 264);
+  --login-border: oklch(0.88 0.025 264);
+  --login-placeholder: oklch(0.68 0.04 265);
+  --login-blue: oklch(0.66 0.18 253);
+  --login-purple: oklch(0.6 0.25 290);
+  --login-on-dark: oklch(0.98 0.008 260);
+  --login-on-dark-muted: oklch(0.81 0.05 251);
+  --login-panel: oklch(0.995 0.002 265 / 97%);
+  --login-feature: oklch(0.97 0.018 260 / 94%);
+  --login-shadow: 0 16px 60px oklch(0.12 0.08 265 / 25%);
+  --login-gradient: linear-gradient(105deg, var(--login-purple), var(--login-blue));
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+body { margin: 0; font-family: 'Cairo', Arial, sans-serif; letter-spacing: 0; }
+.login-page { position: relative; min-height: 100svh; overflow: hidden; color: var(--login-on-dark); background: var(--login-ink); }
+.network-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+.page-header { position: relative; display: flex; justify-content: space-between; align-items: flex-start; padding: 25px 30px 0; }
+.header-motto { font-size: 13px; font-weight: 700; line-height: 1.55; text-align: left; }
+.header-motto span { display: block; width: 34px; height: 3px; margin-top: 12px; background: var(--login-gradient); }
+.version { color: var(--login-on-dark-muted); font-size: 12px; }
+.login-layout { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 55px; max-width: 1230px; margin: 0 auto; padding: 0 35px 70px; min-height: calc(100svh - 110px); align-items: start; }
+.brand-section { align-self: start; padding-top: 24px; }
+.brand-lockup { display: flex; justify-content: center; align-items: center; gap: 10px; }
+.brand-logo { width: 183px; height: 206px; object-fit: contain; }
+.brand-name h1 { font-family: Arial, sans-serif; font-size: 72px; font-weight: 800; line-height: 1.07; margin: 0 0 8px; white-space: nowrap; }
+.brand-name h1 span { color: var(--login-blue); }
+.brand-name p { font-family: Arial, sans-serif; font-size: 15px; font-weight: 600; line-height: 1.4; margin: 0; letter-spacing: 1.1px; }
+.brand-description { text-align: center; margin-top: 28px; }
+.brand-description h2 { font-size: 23px; font-weight: 700; margin: 0; line-height: 1.65; }
+.brand-description p { display: flex; justify-content: center; align-items: center; gap: 12px; font-size: 16px; color: var(--login-on-dark-muted); margin: 5px 0 17px; }
+.brand-description b { color: var(--login-blue); font-size: 13px; }
+.section-accent { display: block; width: 43px; height: 3px; margin: auto; background: var(--login-gradient); border-radius: 2px; }
+.feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+.feature-item { background: var(--login-feature); border: 1px solid var(--login-border); border-radius: 8px; color: var(--login-copy); text-align: center; padding: 15px 5px 12px; min-height: 124px; }
+.feature-item > svg { width: 31px; height: 31px; margin: 0 auto 8px; color: var(--login-purple); }
+.feature-item h3 { font-size: 11px; font-weight: 800; margin: 0 0 5px; color: var(--login-ink); white-space: nowrap; }
+.feature-item p { font-size: 12px; line-height: 1.7; margin: 0; white-space: pre-line; }
+.login-panel { background: var(--login-panel); border: 1px solid var(--login-border); border-radius: 18px; color: var(--login-ink); padding: 24px 40px 28px; box-shadow: var(--login-shadow); width: 100%; max-width: 480px; min-height: 614px; }
+.language-row { display: flex; justify-content: flex-start; }
+.language-button { background: var(--login-panel); border-color: var(--login-border); height: 36px; padding: 0 11px; font-size: 12px; gap: 7px; border-radius: 8px; color: var(--login-ink); box-shadow: none; }
+.language-button svg:first-child { width: 18px; height: 18px; }
+.language-button svg:last-child { width: 12px; height: 12px; }
+.welcome { text-align: center; margin: 36px -10px 35px; }
+.welcome h2 { font-size: 32px; font-weight: 800; line-height: 1.5; margin: 0 0 4px; }
+.welcome p { font-size: 14px; color: var(--login-copy); margin: 0; }
+.login-form { display: flex; flex-direction: column; gap: 17px; }
+.field { position: relative; }
+.field input { height: 50px; padding: 0 18px 0 47px; background: var(--login-soft); border-color: var(--login-border); border-radius: 8px; color: var(--login-ink); font-family: inherit; font-size: 14px; box-shadow: none; }
+.field input::placeholder { color: var(--login-placeholder); }
+.field:has(.password-toggle) input { padding-right: 47px; }
+.field-icon { position: absolute; left: 15px; top: 14px; width: 22px; height: 22px; color: var(--login-copy); pointer-events: none; }
+.password-toggle { position: absolute; right: 8px; top: 7px; color: var(--login-copy); }
+.form-options { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: -1px; }
+.remember-label { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--login-copy); cursor: pointer; position: relative; }
+.remember-label input { position: absolute; opacity: 0; width: 20px; height: 20px; }
+.check-box { width: 20px; height: 20px; display: grid; place-items: center; border: 1px solid var(--login-border); border-radius: 4px; background: var(--login-light); }
+.remember-label input:checked + .check-box { background: var(--login-purple); border-color: var(--login-purple); color: var(--login-light); }
+.remember-label input:focus-visible + .check-box { outline: 2px solid var(--login-blue); outline-offset: 3px; }
+.check-box svg { width: 16px; height: 16px; }
+.form-options > button { font-family: inherit; font-size: 12px; padding: 0; height: 25px; color: var(--login-purple); }
+.sign-in-button { height: 53px; background: var(--login-gradient); color: var(--login-light); border-radius: 8px; font-family: inherit; font-size: 16px; font-weight: 500; gap: 13px; box-shadow: 0 7px 18px color-mix(in oklch, var(--login-purple) 15%, transparent); margin-top: 1px; }
+.sign-in-button:hover { opacity: .92; }
+.sign-in-button svg { width: 22px; height: 22px; }
+.security-note { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 59px; color: var(--login-placeholder); direction: ltr; }
+.security-note > svg { width: 29px; height: 29px; color: var(--login-purple); stroke-width: 1.6; }
+.security-note p { font-size: 12px; text-align: center; margin: 0; line-height: 1.7; }
+.security-note span { display: block; font-family: Arial, sans-serif; font-size: 11px; margin-top: 3px; }
+.form-notice { color: var(--login-copy); font-size: 12px; text-align: center; margin: 0; }
+.back-button { font-family: inherit; }
+.page-footer { position: absolute; bottom: 21px; left: 29px; font-family: Arial, sans-serif; font-size: 11px; color: var(--login-on-dark-muted); }
+.page-footer span { margin: 0 7px; }
+@media (min-width: 1450px) { .login-layout { padding-top: 40px; align-items: start; } .brand-section { padding-top: 15px; } }
+@media (max-width: 1050px) { .login-layout { gap: 27px; padding-inline: 24px; } .brand-logo { width: 135px; height: 175px; } .brand-name h1 { font-size: 55px; } .brand-name p { font-size: 11px; } .brand-description h2 { font-size: 19px; } .brand-description p { font-size: 13px; gap: 8px; } .login-panel { padding-inline: 28px; } .feature-grid { gap: 7px; } .feature-item h3 { font-size: 9px; } .feature-item p { font-size: 11px; } }
+@media (max-width: 760px) { .page-header { padding: 18px 20px 0; } .header-motto { font-size: 11px; } .login-layout { display: flex; flex-direction: column; padding: 10px 20px 80px; gap: 28px; min-height: auto; } .brand-section { width: 100%; padding-top: 0; } .brand-lockup { gap: 8px; } .brand-logo { width: 112px; height: 128px; } .brand-name h1 { font-size: 48px; } .brand-name p { font-size: 10px; letter-spacing: .5px; } .brand-description { margin-top: 15px; } .brand-description h2 { font-size: 18px; } .brand-description p { font-size: 12px; flex-wrap: wrap; } .feature-grid { margin-top: 22px; gap: 7px; } .feature-item { padding: 12px 3px; min-height: 112px; } .feature-item h3 { white-space: normal; font-size: 10px; line-height: 1.6; min-height: 32px; } .feature-item p { font-size: 10px; } .feature-item > svg { width: 25px; height: 25px; margin-bottom: 5px; } .login-panel { padding: 22px 25px 27px; min-height: 560px; } .welcome { margin-top: 27px; margin-bottom: 30px; } .welcome h2 { font-size: 29px; } .welcome p { font-size: 12px; } .security-note { margin-top: 43px; } .network-background { object-position: 32% bottom; } .page-footer { bottom: 22px; left: 20px; font-size: 9px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
